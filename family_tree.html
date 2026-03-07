@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شجرة العائلة الملكية | تحفة فنية للعراقة والفخامة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #002366;       
+            --deep-olive: #355E3B;       
+            --rich-burgundy: #706b6b;   
+            --polished-gold: #cc3562;    
+            --light-gold: #865664;       
+            --parchment: #7e6319;        
+            --white: #8b0a0a;
+            --text-dark: #1A1A1A;
+        }
+
+        body {
+            font-family: 'Cairo', 'Amiri', serif;
+            background-color: var(--parchment);
+            background-image: url('https://www.transparenttextures.com/patterns/papyros.png');
+            margin: 0;
+            padding: 30px;
+            color: var(--text-dark);
+            background-attachment: fixed;
+        }
+
+        .royal-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main-title {
+            background: linear-gradient(135deg, var(--royal-blue), #001A4D);
+            color: var(--polished-gold);
+            padding: 60px 40px;
+            border-radius: 25px;
+            border: 4px solid var(--polished-gold);
+            margin-bottom: 60px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-title h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5em;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: 700;
+        }
+
+        .grand-parents-section {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .person {
+            display: inline-block;
+            text-align: center;
+            margin: 15px;
+            vertical-align: top;
+            transition: all 0.4s ease;
+        }
+
+        .person-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--polished-gold);
+            background: #552929;
+            margin-bottom: 10px;
+            object-fit: cover;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            transition: 0.4s ease;
+        }
+
+        .grandparent-img {
+            width: 120px;
+            height: 120px;
+            border: 5px solid var(--polished-gold);
+        }
+
+        .person:hover .person-img {
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(204, 53, 98, 0.6);
+            border-color: var(--white);
+        }
+
+        .person-name {
+            font-weight: 700;
+            display: block;
+            color: var(--deep-olive);
+            font-size: 1em;
+            margin: 8px 0 3px 0;
+            background-color: var(--light-gold);
+            padding: 3px 10px;
+            border-radius: 10px;
+            border: 1px solid var(--polished-gold);
+        }
+
+        .birth-date {
+            font-size: 0.75em;
+            color: var(--rich-burgundy);
+            display: block;
+            font-weight: bold;
+        }
+
+        .family-card {
+            background-color: var(--white);
+            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+            border: 2px solid var(--polished-gold);
+            border-radius: 30px;
+            margin-bottom: 50px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .family-header {
+            background: linear-gradient(135deg, var(--deep-olive), #254229);
+            color: var(--polished-gold);
+            padding: 15px 30px;
+            border-radius: 20px;
+            margin: -45px auto 30px;
+            width: fit-content;
+            min-width: 250px;
+            border: 3px solid var(--polished-gold);
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.4em;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            font-family: 'Amiri', serif;
+        }
+
+        /* تنسيقات برواز الصور الجماعية */
+        .group-photo-wrap {
+            width: 90%;
+            margin: 0 auto 40px;
+            padding: 10px;
+            border: 2px double var(--polished-gold);
+            border-radius: 20px;
+            background: rgb(136, 69, 69);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .main-group-photo {
+            width: 100%;
+            height: 350px;
+            background-color: #5090a0;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #64b5d4;
+        }
+
+        .main-group-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 35, 102, 0.7);
+            color: var(--polished-gold);
+            text-align: center;
+            padding: 10px 0;
+            font-family: 'Amiri', serif;
+            font-size: 1.2em;
+        }
+
+        .members-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .sub-family {
+            background-color: #7cdee6;
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 30px;
+            border: 1px solid var(--polished-gold);
+            border-right: 6px solid var(--deep-olive);
+        }
+
+        .sub-family strong {
+            display: block;
+            margin-bottom: 15px;
+            color: var(--deep-olive);
+            font-size: 1.2em;
+            font-family: 'Amiri', serif;
+            border-bottom: 2px solid var(--polished-gold);
+            width: fit-content;
+        }
+
+        footer {
+            color: var(--royal-blue);
+            padding: 50px 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="login-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--royal-blue); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--polished-gold); font-family: 'Amiri', serif;">
+        <h2 style="font-size: 2.5em; margin-bottom: 20px;">شجرة العائلة الملكية</h2>
+        <p style="margin-bottom: 20px; color: white;">يرجى إدخال كلمة السر للدخول</p>
+        <input type="password" id="pass-input" placeholder="كلمة السر هنا..." style="padding: 15px; border-radius: 10px; border: 2px solid var(--polished-gold); width: 250px; text-align: center; font-size: 1.2em; outline: none;">
+        <button onclick="checkPass()" style="margin-top: 20px; padding: 10px 40px; background: var(--polished-gold); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 1.1em; transition: 0.3s;">دخول</button>
+        <p id="error-msg" style="color: #ff4d4d; margin-top: 15px; display: none;">كلمة السر غير صحيحة، حاول مرة أخرى!</p>
+    </div>
+
+    <div class="royal-container">
+        <div class="main-title">
+            <h1>شجرة العائلة الملكية</h1>
+            <p>بإشراف  طه وإسماعيل</p>
+            <div class="grand-parents-section">
+                <div class="person">
+                    <img src="https://via.placeholder.com/120" class="person-img grandparent-img" alt="فتحي">
+                    <span class="person-name">فتحي (الأب العظيم)</span>
+                    <span class="birth-date">١٥/٠٥/١٩٥٠</span>
+                </div>
+                <div class="person">
+                    <img src="https://via.placeholder.com/120" class="person-img grandparent-img" alt="سعديه">
+                    <span class="person-name">سسعديه (الأم العظيمة)</span>
+                    <span class="birth-date">21/10/1947</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="family-card">
+            <div class="family-header">أسرة الشيخ حسن</div>
+            
+            <div class="group-photo-wrap">
+                <div class="main-group-photo">
+                    <img src="https://via.placeholder.com/600x300" alt="صورة جماعية لأسرة الشيخ حسن">
+                    <div class="photo-overlay">لحظات عائلية لا تُنسى</div>
+                </div>
+            </div>
+
+            <div class="members-container">
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">الشيخ حسن</span><span class="birth-date">٠١/٠١/١٩٨٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">مروة</span><span class="birth-date">٠١/٠١/١٩٨٥</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">محمد</span><span class="birth-date">٠١/٠١/٢٠٠٥</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">حمزة</span><span class="birth-date">٠١/٠١/٢٠٠٧</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">منة</span><span class="birth-date">٠١/٠١/٢٠١٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">سارة</span><span class="birth-date">٠١/٠١/٢٠١٢</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">جوهارية</span><span class="birth-date">٠١/٠١/٢٠١٥</span></div>
+            </div>
+        </div>
+
+        <div class="family-card">
+            <div class="family-header">أسرة هالة ومحي</div>
+            
+            <div class="group-photo-wrap">
+                <div class="main-group-photo">
+                    <img src="https://via.placeholder.com/600x300" alt="صورة جماعية لهالة ومحي">
+                    <div class="photo-overlay">عائلة هالة ومحي</div>
+                </div>
+            </div>
+
+            <div class="members-container">
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">هالة</span><span class="birth-date">٠١/٠١/١٩٨٢</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">محي</span><span class="birth-date">٠١/٠١/١٩٧٨</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">محمد</span><span class="birth-date">2006-1-6s</span></div>
+            </div>
+
+            <div class="sub-family">
+                <strong>فرع صلحة وحمدي:</strong>
+                <div class="group-photo-wrap" style="width: 80%;">
+                    <div class="main-group-photo" style="height: 200px;">
+                        <img src="https://via.placeholder.com/600x200" alt="صورة أسرة صلحة">
+                        <div class="photo-overlay" style="font-size: 1em; padding: 5px 0;">أسرة صلحة وحمدي</div>
+                    </div>
+                </div>
+                <div class="members-container">
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">صلحة</span><span class="birth-date">٠١/٠١/٢٠٠٠</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">حمدي</span><span class="birth-date">٠١/٠١/١٩٩٨</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">مريم</span><span class="birth-date">٠١/٠١/٢٠٢٠</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">أمل</span><span class="birth-date">٠١/٠١/٢٠٢٢</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">خلود</span><span class="birth-date">٠١/٠١/٢٠٢٤</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">مكة</span><span class="birth-date">٠١/٠١/٢٠٢٥</span></div>
+                </div>
+            </div>
+
+            <div class="sub-family">
+                <strong>فرع سمر ومرزوق:</strong>
+                <div class="group-photo-wrap" style="width: 80%;">
+                    <div class="main-group-photo" style="height: 200px;">
+                        <img src="https://via.placeholder.com/600x200" alt="صورة أسرة سمر">
+                        <div class="photo-overlay" style="font-size: 1em; padding: 5px 0;">أسرة سمر ومرزوق</div>
+                    </div>
+                </div>
+                <div class="members-container">
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">سمر</span><span class="birth-date">٠١/٠١/٢٠٠٣</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">مرزوق</span><span class="birth-date">٠١/٠١/٢٠٠٠</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">ملك</span><span class="birth-date">٠١/٠١/٢٠٢١</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">شهد</span><span class="birth-date">٠١/٠١/٢٠٢٣</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">مكة</span><span class="birth-date">٠١/٠١/٢٠٢٤</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">ريتال</span><span class="birth-date">٠١/٠١/٢٠٢٥</span></div>
+                </div>
+            </div>
+
+            <div class="sub-family">
+                <strong>فرع أسماء وحمدي:</strong>
+                <div class="group-photo-wrap" style="width: 80%;">
+                    <div class="main-group-photo" style="height: 200px;">
+                        <img src="https://via.placeholder.com/600x200" alt="صورة أسرة أسماء">
+                        <div class="photo-overlay" style="font-size: 1em; padding: 5px 0;">أسرة أسماء وحمدي</div>
+                    </div>
+                </div>
+                <div class="members-container">
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">أسماء</span><span class="birth-date">٠١/٠١/٢٠٠٥</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">حمدي</span><span class="birth-date">٠١/٠١/٢٠٠٢</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">محمد</span><span class="birth-date">٠١/٠١/٢٠٢٤</span></div>
+                    <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">معاذ</span><span class="birth-date">٠١/٠١/٢٠٢٦</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="family-card">
+            <div class="family-header">أسرة رجب وأسماء</div>
+            
+            <div class="group-photo-wrap">
+                <div class="main-group-photo">
+                    <img src="https://via.placeholder.com/600x300" alt="صورة جماعية لأسرة رجب">
+                    <div class="photo-overlay">عائلة رجب وأسماء</div>
+                </div>
+            </div>
+
+            <div class="members-container">
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">رجب</span><span class="birth-date">٠١/٠١/١٩٨٥</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">أسماء</span><span class="birth-date">٠١/٠١/١٩٩٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">مريم</span><span class="birth-date">٠١/٠١/٢٠١٢</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">زياد</span><span class="birth-date">٠١/٠١/٢٠١٥</span></div>
+                <div class="person"><img src="C:\Users\kromd\Documents\MyFamilyApp\WhatsApp Image 2026-03-06 at 6.59.55 PM.jpeg" class="person-img"><span class="person-name">أنس </span><span class="birth-date">٠١/٠١/٢٠١٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">مريمان</span><span class="birth-date">٠١/٠١/٢٠١٨</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">زياد و مريم </span><span class="birth-date">٠١/٠١/٢٠١٥</span></div>
+               
+            </div>
+        </div>
+
+        <div class="family-card">
+            <div class="family-header">أسرة محمد وياسمين</div>
+            
+            <div class="group-photo-wrap">
+                <div class="main-group-photo">
+                    <img src="https://via.placeholder.com/600x300" alt="صورة جماعية لأسرة محمد">
+                    <div class="photo-overlay">عائلة محمد وياسمين</div>
+                </div>
+            </div>
+
+            <div class="members-container">
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">محمد</span><span class="birth-date">٠١/٠١/١٩٨٨</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">ياسمين</span><span class="birth-date">٠١/٠١/١٩٩٢</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">ملك</span><span class="birth-date">٠١/٠١/٢٠١٤</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">سما</span><span class="birth-date">٠١/٠١/٢٠١٦</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">عمر</span><span class="birth-date">٠١/٠١/٢٠١٩</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">علي</span><span class="birth-date">٠١/٠١/٢٠٢٢</span></div>
+            </div>
+        </div>
+
+        <div class="family-card">
+            <div class="family-header">أسرة الشيخ أحمد  و شيماء</div>
+            
+            <div class="group-photo-wrap">
+                <div class="main-group-photo">
+                    <img src="https://via.placeholder.com/600x300" alt="صورة جماعية لأسرة الشيخ أحمد">
+                    <div class="photo-overlay">عائلة الشيخ أحمد و شيماء</div>
+                </div>
+            </div>
+
+            <div class="members-container">
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">الشيخ أحمد</span><span class="birth-date">٠١/٠١/١٩٨٨</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">شيماء </span><span class="birth-date">٠١/٠١/١٩٩٢</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">روميساء</span><span class="birth-date">٠١/٠١/٢٠١٤</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">رؤفيده</span><span class="birth-date">٠١/٠١/٢٠١٦</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">روضه</span><span class="birth-date">٠١/٠١/٢٠١٩</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">سوفين </span><span class="birth-date">٠١/٠١/٢٠٢٢</span></div>
+            </div>
+        </div>
+
+        <div class="family-card">
+            <div class="family-header">أسرة فاطمة وسلطان</div>
+            
+            <div class="group-photo-wrap">
+                <div class="main-group-photo">
+                    <img src="https://via.placeholder.com/600x300" alt="صورة جماعية لأسرة فاطمة">
+                    <div class="photo-overlay">عائلة فاطمة وسلطان</div>
+                </div>
+            </div>
+
+            <div class="members-container">
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">فاطمة</span><span class="birth-date">٠١/٠١/١٩٩٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">سلطان</span><span class="birth-date">٠١/٠١/١٩٨٥</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">أميرة</span><span class="birth-date">٠١/٠١/٢٠١٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">طه</span><span class="birth-date">2007-7-20</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">جنى</span><span class="birth-date">٠١/٠١/٢٠١٥</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">دينا</span><span class="birth-date">٠١/٠١/٢٠١٨</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">لينا</span><span class="birth-date">٠١/٠١/٢٠٢١</span></div>
+            </div>
+        </div>
+
+        <div class="family-card">
+            <div class="family-header">أسرةعلاء و لبنه</div>
+            
+            <div class="group-photo-wrap">
+                <div class="main-group-photo">
+                    <img src="https://via.placeholder.com/600x300" alt="صورة جماعية لأسرة علاء">
+                    <div class="photo-overlay">عائلة علاء و لبنه</div>
+                </div>
+            </div>
+
+            <div class="members-container">
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">علاء</span><span class="birth-date">٠١/٠١/١٩٩٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">لبنه</span><span class="birth-date">٠١/٠١/١٩٨٥</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">رؤى </span><span class="birth-date">٠١/٠١/٢٠١٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">ريتال</span><span class="birth-date">٠١/٠١/٢٠١٢</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">ايلاف</span><span class="birth-date">٠١/٠١/٢٠١٥</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">لقاء</span><span class="birth-date">٠١/٠١/٢٠١٨</span></div>
+                
+            </div>
+        </div>
+
+        <div class="family-card">
+            <div class="family-header">أسرة إسماعيل  و أسماء</div>
+            
+            <div class="group-photo-wrap">
+                <div class="main-group-photo">
+                    <img src="https://via.placeholder.com/600x300" alt="صورة جماعية لأسرة إسماعيل">
+                    <div class="photo-overlay">عائلة إسماعيل و أسماء</div>
+                </div>
+            </div>
+
+            <div class="members-container">
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">إسماعيل</span><span class="birth-date">1986-11-30</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">أسماء </span><span class="birth-date">٠١/٠١/١٩٨٥</span></div>
+                <div class="person"><img src="https://postimg.cc/JG1h7nJ5" class="person-img"><span class="person-name">أنس </span><span class="birth-date">٠١/٠١/٢٠١٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">اسيل</span><span class="birth-date">٠١/٠١/٢٠١٢</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">ريان</span><span class="birth-date">٠١/٠١/٢٠١٥</span></div>
+                
+            </div>
+        </div>
+
+        <div class="family-card">
+            <div class="family-header">أسرة ثناء  و ربيع </div>
+            
+            <div class="group-photo-wrap">
+                <div class="main-group-photo">
+                    <img src="https://via.placeholder.com/600x300" alt="صورة جماعية لأسرة ثناء ">
+                    <div class="photo-overlay">عائلة ثناء  و ربيع </div>
+                </div>
+            </div>
+
+            <div class="members-container">
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">ثناء</span><span class="birth-date">٠١/٠١/١٩٩٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">ربيع  </span><span class="birth-date">٠١/٠١/١٩٨٥</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">جومانه </span><span class="birth-date">٠١/٠١/٢٠١٠</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">مصطفي </span><span class="birth-date">٠١/٠١/٢٠١٢</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">محمد </span><span class="birth-date">٠١/٠١/٢٠١٥</span></div>
+                <div class="person"><img src="https://via.placeholder.com/80" class="person-img"><span class="person-name">عبد الرحءمان  </span><span class="birth-date">٠١/٠١/٢٠١٥</span></div>
+                
+            </div>
+        </div>
+
+        <footer>
+            تم الإنشاء بواسطة طه  -من 2025 /8/3 الي 2026 /3/..
+            
+        </footer>
+    </div>
+    <script>
+        document.querySelectorAll('.person-img, .main-group-photo img').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', function() {
+               
+                var viewer = window.open(this.src, '_blank', 'location=no,closebuttoncaption=الرجوع');
+            });
+        });
+    </script>
+    <script>
+        function checkPass() {
+            const password = document.getElementById('pass-input').value;
+            const correctPass = "1947"; //ده الباسورد 
+    
+            if (password === correctPass) {
+                
+                document.getElementById('login-overlay').style.display = 'none';
+               
+                sessionStorage.setItem('isLoggedIn', 'true');
+            } else {
+                
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+    
+        
+        window.onload = function() {
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                document.getElementById('login-overlay').style.display = 'none';
+            }
+        };
+    
+        
+        document.getElementById('pass-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkPass();
+            }
+        });
+    </script>
+</body>
+</html>
